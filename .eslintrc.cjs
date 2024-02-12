@@ -5,6 +5,13 @@ module.exports = {
     es2021: true,
     node: true,
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
   extends: [
     'prettier',
     'airbnb',
@@ -24,6 +31,12 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react', 'prettier'],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   rules: {
-    'prettier/prettier': ['error'],
+    'react/react-in-jsx-scope': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
 };
