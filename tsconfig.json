@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ESNext",
     "useDefineForClassFields": true,
     "types": ["vite/client"],
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
 
@@ -26,5 +26,5 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/vite-env.d.ts"]
 }

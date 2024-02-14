@@ -29,7 +29,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   plugins: ['@typescript-eslint', 'react', 'prettier'],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['.eslintrc.cjs', 'vite.config.ts', 'public', 'dist', '.prettierrc', '*.html'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'prettier/prettier': [
