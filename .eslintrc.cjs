@@ -36,6 +36,10 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    '@typescript-eslint/no-use-before-define': [
+      'error',
+      { functions: true, classes: true, variables: false },
+    ],
     'import/order': [
       'error',
       {

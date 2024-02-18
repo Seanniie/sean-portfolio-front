@@ -18,16 +18,24 @@ function ThemedApp() {
 
   const defaultThemeConfig: ThemeConfig = {
     // token: {
-    //   colorPrimary: '#1890ff',
+    //   paddingXS: 4,
     // },
-    algorithm: antdTheme.defaultAlgorithm,
+    algorithm: [antdTheme.defaultAlgorithm, antdTheme.compactAlgorithm],
+    components: {
+      Typography: {},
+      /* here is your component tokens */
+    },
   };
 
   const darkThemeConfig: ThemeConfig = {
     // token: {
     //   colorPrimary: '#1d1d1d',
     // },
-    algorithm: antdTheme.darkAlgorithm,
+    algorithm: [antdTheme.darkAlgorithm, antdTheme.compactAlgorithm],
+    components: {
+      Typography: {},
+      /* here is your component tokens */
+    },
   };
 
   const themeConfig = theme === 'default' ? defaultThemeConfig : darkThemeConfig;
