@@ -7,9 +7,7 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
+      typescript: {},
     },
   },
   extends: [
@@ -36,6 +34,48 @@ module.exports = {
       'error',
       {
         endOfLine: 'auto',
+      },
+    ],
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'type',
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'unknown',
+        ],
+        pathGroups: [
+          {
+            pattern: 'react*',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: '@hooks/*',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: '@pages/*',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: '@components/*',
+            group: 'internal',
+            position: 'after',
+          },
+        ],
+
+        pathGroupsExcludedImportTypes: ['@tanstack*'],
+        alphabetize: {
+          order: 'asc',
+        },
       },
     ],
   },
