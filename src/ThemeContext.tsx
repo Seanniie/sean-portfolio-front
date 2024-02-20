@@ -1,9 +1,9 @@
 import { createContext, useContext, useState, ReactNode, useMemo } from 'react';
 
-type Theme = 'default' | 'dark';
+type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
-  theme: Theme;
+  currentTheme: Theme;
   toggleTheme: () => void;
 }
 
@@ -14,13 +14,13 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>('default');
+  const [currentTheme, setCurrentTheme] = useState<Theme>('light');
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'default' ? 'dark' : 'default'));
+    setCurrentTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
-  const value = useMemo(() => ({ theme, toggleTheme }), [theme]);
+  const value = useMemo(() => ({ currentTheme, toggleTheme }), [currentTheme]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

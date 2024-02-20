@@ -1,7 +1,7 @@
-import { Form, Input, Space, theme } from 'antd';
+import { Space, theme } from 'antd';
 
 function LoginForm() {
-  const [loginForm] = Form.useForm();
+  // const [loginForm] = Form.useForm();
   const { token } = theme.useToken();
 
   return (
@@ -13,10 +13,10 @@ function LoginForm() {
         border: '1px solid',
         borderRadius: token.borderRadiusLG,
         borderColor: token.colorBorder,
-        padding: 200,
+        padding: '0 200px',
       }}
     >
-      <Form form={loginForm} layout="vertical">
+      {/* <Form form={loginForm} layout="vertical">
         <Form.Item
           label="아이디"
           name="userId"
@@ -24,7 +24,7 @@ function LoginForm() {
         >
           <Input placeholder="아이디" allowClear />
         </Form.Item>
-      </Form>
+      </Form> */}
     </Space>
   );
 }

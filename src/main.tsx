@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import ReactDOM from 'react-dom/client';
 import { RecoilRoot } from 'recoil';
 import { ThemeProvider, useTheme } from './ThemeContext';
+import ThemeSwitcher from './ThemeSwitcher';
 import App from '@/App';
 
 dayjs.locale('ko');
@@ -14,35 +15,48 @@ if (!rootElement) throw new Error('Failed to find the root element');
 const root = ReactDOM.createRoot(rootElement);
 
 function ThemedApp() {
-  const { theme } = useTheme();
+  const { currentTheme } = useTheme();
 
   const defaultThemeConfig: ThemeConfig = {
-    // token: {
-    //   paddingXS: 4,
-    // },
+    token: {
+      fontFamily: 'TossFaceFont, sans-serif',
+      colorBgBase: '#fff',
+      colorText: 'rgb(51, 61, 75)',
+    },
     algorithm: [antdTheme.defaultAlgorithm, antdTheme.compactAlgorithm],
     components: {
-      Typography: {},
-      /* here is your component tokens */
+      Button: {
+        colorText: 'rgb(51, 61, 75)',
+      },
+      Typography: {
+        fontFamily: 'TossFaceFont, sans-serif',
+      },
     },
   };
 
   const darkThemeConfig: ThemeConfig = {
-    // token: {
-    //   colorPrimary: '#1d1d1d',
-    // },
+    token: {
+      fontFamily: 'TossFaceFont, sans-serif',
+      colorBgBase: '#202632',
+      colorText: '#ffffff',
+    },
     algorithm: [antdTheme.darkAlgorithm, antdTheme.compactAlgorithm],
     components: {
-      Typography: {},
-      /* here is your component tokens */
+      Button: {
+        colorText: '#ffffff',
+      },
+      Typography: {
+        fontFamily: 'TossFaceFont, sans-serif',
+      },
     },
   };
 
-  const themeConfig = theme === 'default' ? defaultThemeConfig : darkThemeConfig;
+  const themeConfig = currentTheme === 'light' ? defaultThemeConfig : darkThemeConfig;
 
   return (
     <ConfigProvider locale={koKR} theme={themeConfig}>
       <App />
+      <ThemeSwitcher />
     </ConfigProvider>
   );
 }
