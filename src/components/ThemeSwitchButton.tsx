@@ -1,7 +1,7 @@
 import { Button } from 'antd';
-import useToggleTheme from './assets/hooks/useToggleTheme';
+import useToggleTheme from '../assets/hooks/useToggleTheme';
 
-function ThemeSwitcher() {
+function ThemeSwitchButton() {
   const { currentTheme, toggleTheme } = useToggleTheme();
 
   return (
@@ -11,4 +11,4 @@ function ThemeSwitcher() {
   );
 }
 
-export default ThemeSwitcher;
+export default ThemeSwitchButton;

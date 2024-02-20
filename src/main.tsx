@@ -4,7 +4,7 @@ import koKR from 'antd/locale/ko_KR';
 import dayjs from 'dayjs';
 import ReactDOM from 'react-dom/client';
 import { RecoilRoot, useRecoilValue } from 'recoil';
-import ThemeSwitcher from './ThemeSwitcher';
+import ThemeSwitchButton from './components/ThemeSwitchButton';
 import themeState from './state/atoms/themeState';
 import App from '@/App';
 
@@ -56,7 +56,7 @@ function ThemedApp() {
   return (
     <ConfigProvider locale={koKR} theme={themeConfig}>
       <App />
-      <ThemeSwitcher />
+      <ThemeSwitchButton />
     </ConfigProvider>
   );
 }
