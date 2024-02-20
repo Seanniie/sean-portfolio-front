@@ -1,14 +1,15 @@
 import { Typography, theme } from 'antd';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import { useTheme } from '@/ThemeContext';
 import videoSrcDark from '@/assets/mp4/Toss_Logo_Motion_Dark_1920.mp4'; // 비디오 파일의 경로를 올바르게 지정하세요.
 import videoSrcLight from '@/assets/mp4/Toss_Logo_Motion_Light_1920.mp4'; // 비디오 파일의 경로를 올바르게 지정하세요.
+import themeState from '@/state/atoms/themeState';
 
 const { Title } = Typography;
 
 function LoginHeader() {
   const { token } = theme.useToken();
-  const { currentTheme } = useTheme();
+  const currentTheme = useRecoilValue(themeState);
 
   const videoSrc = currentTheme === 'light' ? videoSrcLight : videoSrcDark;
 

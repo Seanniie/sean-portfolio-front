@@ -3,9 +3,9 @@ import { ConfigProvider, theme as antdTheme } from 'antd';
 import koKR from 'antd/locale/ko_KR';
 import dayjs from 'dayjs';
 import ReactDOM from 'react-dom/client';
-import { RecoilRoot } from 'recoil';
-import { ThemeProvider, useTheme } from './ThemeContext';
+import { RecoilRoot, useRecoilValue } from 'recoil';
 import ThemeSwitcher from './ThemeSwitcher';
+import themeState from './state/atoms/themeState';
 import App from '@/App';
 
 dayjs.locale('ko');
@@ -15,7 +15,7 @@ if (!rootElement) throw new Error('Failed to find the root element');
 const root = ReactDOM.createRoot(rootElement);
 
 function ThemedApp() {
-  const { currentTheme } = useTheme();
+  const currentTheme = useRecoilValue(themeState);
 
   const defaultThemeConfig: ThemeConfig = {
     token: {
@@ -62,9 +62,7 @@ function ThemedApp() {
 }
 
 root.render(
-  <ThemeProvider>
-    <RecoilRoot>
-      <ThemedApp />
-    </RecoilRoot>
-  </ThemeProvider>,
+  <RecoilRoot>
+    <ThemedApp />
+  </RecoilRoot>,
 );

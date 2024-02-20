@@ -1,11 +1,11 @@
 import { Button } from 'antd';
-import { useTheme } from './ThemeContext';
-// 예시
+import useToggleTheme from './assets/hooks/useToggleTheme';
+
 function ThemeSwitcher() {
-  const { currentTheme, toggleTheme } = useTheme();
+  const { currentTheme, toggleTheme } = useToggleTheme();
 
   return (
-    <Button onClick={toggleTheme} style={{ position: 'absolute', top: 0, right: 0 }}>
+    <Button onClick={toggleTheme} style={{ position: 'absolute', bottom: 0, left: 0 }}>
       {currentTheme === 'light' ? '어두운 모드' : '밝은 모드'}
     </Button>
   );
